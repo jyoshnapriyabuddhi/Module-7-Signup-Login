@@ -1,0 +1,9 @@
+extends baseTemplate
+
+block content
+  .main.text-xs-center
+    if authenticated === true 
+      a.btn.btn-info-outline.btn-lg(href='/profile') Get Loans
+      a.btn.btn-info-outline.btn-lg(href='/loan') Create Loans
+    else
+        h1.display-3 Welcome
