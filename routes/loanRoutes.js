@@ -4,15 +4,9 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
-router
-.get('/profile', authController.protect, loanController.getAllloans) ;
-
-
-router
-.get('/loan', authController.protect, loanController.getloan)
-.post('/loan',authController.protect, loanController.createloan);
-
-router
-.get('/loans', loanController.getloans)
+router.get('/profile', authController.protect, loanController.getallloans) ;
+router.get('/loan', authController.protect, loanController.getloan);
+router.post('/loan',authController.protect, loanController.createloan);
+router.get('/loans', loanController.getloans)
 
 module.exports = router;

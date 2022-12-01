@@ -2,7 +2,7 @@ const Loan = require('./../models/loanModel');
 const APIFeatures = require('./../databaseManager/loanDbContext');
 
 
-exports.getAllloans =   async (req, res) => {
+exports.getallloans =   async (req, res) => {
     try {
       // EXECUTE QUERY
       const features = new APIFeatures(Loan.find({"email":req.user.email}), req.query)
@@ -12,7 +12,7 @@ exports.getAllloans =   async (req, res) => {
         .paginate();
       const loans = await features.query;
       console.log(req.user._id);
-      res.render('profile', {loans})
+      res.render('loandisplay', {loans})
     } catch (err) {
       res.status(404).json({
         status: 'fail',
